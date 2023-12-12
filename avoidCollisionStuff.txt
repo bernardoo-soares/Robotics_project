@@ -1,0 +1,78 @@
+# Left joystick for X and Y-axis
+        if abs(y_value) > JOYSTICK_THRESHOLD:
+            if y_value > 0:
+                #ser.write(b'Q\r')  # Move in one direction on the Y-axis
+                #receive = R.read_and_wait(ser1, 0.001)
+                #print(receive)
+                if not 'Q' in forbidden:
+                    ser.write(b'Q\r')  # Move in one direction on the X-axis
+                    #print("Q")
+                else: 
+                    print("Forbidden command!")
+                
+            else:
+                #ser.write(b'1\r')  # Move in the opposite direction on the Y-axis
+                #receive2 = R.read_and_wait(ser1, 0.001)
+                #print(receive2)
+                if not '1' in forbidden:
+                    ser.write(b'1\r')  # Move in the opposite direction on the X-axis
+                else: 
+                    print("Forbidden command!")
+
+        if abs(x_value) > JOYSTICK_THRESHOLD:
+            if x_value > 0:
+                #ser.write(b'W\r')  # Move in one direction on the X-axis
+                if not 'W' in forbidden:
+                    ser.write(b'W\r')  # Move in one direction on the Y-axis
+                else: 
+                    print("Forbidden command!")
+            else:
+                #ser.write(b'2\r')  # Move in the opposite direction on the X-axis
+                if not '2' in forbidden:
+                    ser.write(b'2\r')  # Move in the opposite direction on the Y-axis
+                else: 
+                    print("Forbidden command!")
+
+        # Right joystick for Pitch and Roll
+        if abs(pitch_value) > JOYSTICK_THRESHOLD:
+            if pitch_value > 0:
+                ser.write(b'5\r')  # Pitch in one direction
+            else:
+                ser.write(b'T\r')  # Pitch in the opposite direction
+
+        if abs(roll_value) > JOYSTICK_THRESHOLD:
+            if roll_value > 0:
+                ser.write(b'4\r')  # Roll in one direction
+            else:
+                ser.write(b'R\r')  # Roll in the opposite direction
+
+        # D-pad for Z-axis (Arrows)
+        if z_value[1] > 0:  # Up arrow
+            #ser.write(b'3\r')  # Move in one direction on the Z-axis
+            if not '3' in forbidden:
+                ser.write(b'3\r')  # Move in one direction on the Z-axis
+            else: 
+                print("Forbidden command!")
+        elif z_value[0] > 0:  # Down arrow
+            #ser.write(b'E\r')  # Move in the opposite direction on the Z-axis
+            if not 'E' in forbidden:
+                ser.write(b'E\r')  # Move in the opposite direction on the Z-axis
+            else: 
+                print("Forbidden command!")
+
+        time.sleep(0.01)  # Small delay to prevent spamming the serial port too quickly
+
+
+
+
+
+
+        """
+        #Clear list of forbidenn
+        forbidden=['_','_','_','_','_','_', '_', '_']
+
+        if(ser==ser1):
+            forbidden = R.avoid_colision(ser1, ser2, forbidden, 1)
+        else:
+            forbidden = R.avoid_colision(ser1, ser2, forbidden, 2)
+        """
