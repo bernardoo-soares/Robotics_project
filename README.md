@@ -8,18 +8,18 @@ Robotics Lab1 2023/2024: README file -> Davide Silva, Bernardo Soares, João Cas
    
 
 2. **Download the Code:**
-- robot.zip -> contains the main and the respective libraries necessary to control the robots and must be used on the PC connected to the robots and the PS4 controller
-- interface.zip -> contains the application that accesses the portable camera and receives information from the program running on the PC connected to the robots. It must be run on another PC.
+- Lab1Robot_FinalVersion -> contains the main and the respective libraries necessary to control the robots and must be used on the PC connected to the robots and the PS4 controller
+- interface_robo -> contains the application that accesses the portable camera and receives information from the program running on the PC connected to the robots. It must be run on another PC.
 
 
-3. **Run the interface.zip Script:**
+3. **Run the interface Script:**
 - The interface.zip main.py must be run on the PC connected to the portable camera.
 
 - Its execution must be started before robot.zip's main.py (so that socket communication takes place correctly).
 
 
 
-4. **Run the robot.zip Script:**
+4. **Run the robot Script:**
 - Robot.zip's main.py must be run on the PC terminal connected to the robots and the PS4 controller.
 
 - The user must ensure that:
